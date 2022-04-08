@@ -70,31 +70,34 @@ for choice in myChoice:
 driver.get('https://ventadecasasydepartamentos.netlify.app/')
 
 time.sleep(3)
-contacto = driver.find_element(By.CSS_SELECTOR, 'body > header > div > div > nav > a:nth-child(4)')
+#contacto = driver.find_element(By.CSS_SELECTOR, 'body > header > div > div > nav > a:nth-child(4)')
+contacto = driver.find_element(By.CSS_SELECTOR, 'a[href="Contactos.html"]')
+
 contacto.click()
 time.sleep(3)
 
 
 
 #scroll hasta un elemento en particular, agregar import ActionChains
-element = driver.find_element(By.CSS_SELECTOR, "body > main > form > fieldset:nth-child(3) > label:nth-child(5)")
+element = driver.find_element(By.ID, "fecha")
 actions = ActionChains(driver)
 actions.move_to_element(element).perform()
 
 my_dropdown = driver.find_element(By.ID, 'opciones')
-#my_dropdown = driver.find_element(By.CSS_SELECTOR, 'option:nth-child(2)')
 my_dropdown.click()
 # import pdb; pdb.set_trace()
 dropdown_object = Select(my_dropdown)
 dropdown_object.select_by_index(1)
 # pdb.set_trace()
 time.sleep(2)
+
+
 all_options = dropdown_object.options
+print('\n\n')
 for opc in all_options:
     print(f"{opc.text}: is selected: {opc.is_selected()}, is enabled: {opc.is_enabled()}")
 
 # pdb.set_trace()
 time.sleep(3)
-#driver.get('https://www.salesforce.com/mx/form/signup/freetrial-sales-pe/?d=70130000000EqoP')
-time.sleep(3)
+
 driver.quit()
