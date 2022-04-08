@@ -14,7 +14,6 @@ driver.get('C:\\tefy\course-python-selenium\Drop_down\dropdown.html')
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
 time.sleep(2)
 
-
 driver.find_element(By.CSS_SELECTOR, 'input[name="conocimientos"][value="Python"]').click()
 
 time.sleep(1)
@@ -51,6 +50,11 @@ print("\n\n")
 for choice in myChoice:
     choice.click()
 
+driver.find_element(By.CSS_SELECTOR, 'input[type="radio"][value="Mujer"]').click()
+time.sleep(1)
+driver.find_element(By.CSS_SELECTOR, 'input[type="radio"][value="hombre"]').click()
+time.sleep(1)
+driver.find_element(By.CSS_SELECTOR, 'input[type="radio"][value="Otro"]').click()
 
 #import pdb; pdb.set_trace()
 
