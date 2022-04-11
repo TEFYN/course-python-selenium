@@ -1,4 +1,4 @@
-# import pdb
+import pdb
 import time
 
 from selenium import webdriver
@@ -31,7 +31,13 @@ time.sleep(2)
 print(f"After switching focus: " + driver.title)
 my_headding = driver.find_element(By.XPATH, '/html/body/h1').text
 print(my_headding)
+print("closing tab")
+driver.close()
+
+driver.switch_to.window(original_window_handle)
+print("Switching back to the original")
+
 
 time.sleep(2)
-# pdb.set_trace()
+pdb.set_trace()
 driver.quit()
