@@ -40,3 +40,4 @@ if __name__ == '__main__':
     verify_total_is_0()
     print('PASS')
     driver.quit()
+
