@@ -1,3 +1,4 @@
+import pdb
 import time
 
 from selenium import webdriver
@@ -30,11 +31,14 @@ class VerifyFreeCode(unittest.TestCase):
 
         coupon_field = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.ID, 'coupon_code')))
         coupon_field.send_keys('SSQA100')
+        self.driver.get_screenshot_as_file('C:\\Users\QA-User64\Desktop\screeshots\coupon.png')
         coupon_field.send_keys(Keys.ENTER)
 
-        WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element(
-            (By.XPATH, '//*[@id="post-7"]/div/div/div[2]/div/table/tbody/tr[3]/td/strong/span/bdi'), '$0.00'))
+        WebDriverWait(self.driver, 10).until(EC.text_to_be_present_in_element((By.XPATH, '//*[@id="post-7"]/div/div/div[2]/div/table/tbody/tr[3]/td/strong/span/bdi'), '$0.00'))
         print('PASS')
+
+        self.driver.get_screenshot_as_file('C:\\Users\QA-User64\Desktop\screeshots\coupon_ok.png')
+        # pdb.set_trace()
 
     @classmethod
     def tearDown(self):
